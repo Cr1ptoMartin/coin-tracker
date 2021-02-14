@@ -11,9 +11,6 @@ function getCoingeckoStatus(){
  		})
 
     .catch(error => console.log('Error', error));
-	
-	//const intervalTime = 30000;
-	//setTimeout(getCoingeckoStatus, intervalTime);
 }
 
 getCoingeckoStatus();
