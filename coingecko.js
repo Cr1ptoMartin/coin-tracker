@@ -1,8 +1,9 @@
 const axios = require('axios');
 var _ = require('lodash');
+var __ =  require('dotenv').config();
 
-const API_URL = 'https://api.etherscan.io/api?module=gastracker&action=gasoracle';
-const API_KEY = '9TFGDPAKWRRWMXP7JR7DCK4EJJNGYC56N5';
+const API_URL = process.env.API_URL;
+const API_KEY = process.env.API_KEY;
 const ENTIRE_API_URL = `${API_URL}&apikey=${API_KEY}`;
 
 function getGasPrice(){
