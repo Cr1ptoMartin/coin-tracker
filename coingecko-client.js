@@ -212,6 +212,7 @@ var derivativves_listExchanges = async() => {
 	console.log(data);
 };
 
+//https://github.com/miscavage/CoinGecko-API
 //ping();
 //global();
 //coins_all();
