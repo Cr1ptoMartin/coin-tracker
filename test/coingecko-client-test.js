@@ -1,6 +1,5 @@
 const CoinGecko = require('coingecko-api');
 const CoinGeckoClient = new CoinGecko();
-var msj = "";
 
 var ping = async() => {
   let data = await CoinGeckoClient.ping();
@@ -145,7 +144,7 @@ var exchange_rates = async() => {
 var simple_price = async() => {
 	let data = await CoinGeckoClient.simple.price({
 		ids: ['bitcoin', 'ethereum'],
-		vs_currencies: ['eur', 'usd'],
+		vs_currencies: ['usd'],
 	});
 	console.log(data);
 };
@@ -216,7 +215,7 @@ var derivativves_listExchanges = async() => {
 //ping();
 //global();
 //coins_all();
-//coins_list();
+coins_list();
 //coins_market();
 //coins_fetch();
 //coins_tickers();
@@ -249,4 +248,4 @@ var derivativves_listExchanges = async() => {
 //derivatives_fetchTickers();
 //derivatives_allExcahnges();
 //derivatives_fetchExchange();
-derivativves_listExchanges();
+//derivativves_listExchanges();
