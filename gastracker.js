@@ -2,7 +2,7 @@ const axios = require('axios');
 var _ = require('lodash');
 var __ =  require('dotenv').config();
 
-const API_URL = process.env.API_URL;
+const API_URL = process.env.ETHERSCAN_API_URL+process.env.ETHERSCAN_GAS_TRACKER_MODULE+process.env.ETHERSCAN_GAS_TRACKER_ACTION;
 const API_KEY = process.env.API_KEY;
 const ENTIRE_API_URL = `${API_URL}&apikey=${API_KEY}`;
 
