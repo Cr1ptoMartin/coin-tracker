@@ -31,8 +31,19 @@ coins_percentage(coins,currencies,range).then((response) => {
             'percent365d': parseFloat(element.price_change_percentage_1y_in_currency),
         }          
         tokens.push(token);
-        
       });
-      tokens.sort(compareValues('price','asc'));
-      console.log(tokens); 
+
+      tokens.sort(compareValues('price','desc'));
+      let topTokens = tokens.slice(0,3);
+      
+      tokens.sort(compareValues('percent1d','desc'));
+      topTokens = topTokens.concat(tokens.slice(0,3));
+
+      tokens.sort(compareValues('percent7d','desc'));
+      topTokens = topTokens.concat(tokens.slice(0,3));
+
+      tokens.sort(compareValues('percent30d','desc'));
+      topTokens = topTokens.concat(tokens.slice(0,3));
+      
+      console.log(topTokens); 
   }).catch(e => console.log(e));;
