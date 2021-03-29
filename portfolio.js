@@ -42,8 +42,8 @@ coins_percentage(coins,currencies,range).then((response) => {
       tokens.sort(compareValues('percent7d','desc'));
       topTokens = topTokens.concat(tokens.slice(0,3));
 
-      tokens.sort(compareValues('percent30d','desc'));
-      topTokens = topTokens.concat(tokens.slice(0,3));
+      //tokens.sort(compareValues('percent30d','desc'));
+      //topTokens = topTokens.concat(tokens.slice(0,3));
       
       console.log(topTokens); 
   }).catch(e => console.log(e));;
