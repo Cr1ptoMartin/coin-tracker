@@ -1,5 +1,5 @@
 const { ping, check_price, coins_percentage } = require("./lib/coingecko-lib");
-const { compareValues } = require("./lib/util-lib");
+const { orderTokens } = require("./lib/token-lib");
 var _ = require('lodash');
 
 //Coins to check
@@ -14,6 +14,8 @@ const coinsBTC = ['bitcoin'];
 const currencies = ['usd'];
 const range = ['1h','24h','7d','14d','30d','200d','1y'];
 let tokens = [];
+let numberOfCoins = 5;
+
 
 coins_percentage(coins,currencies,range).then((response) => {
     
@@ -33,17 +35,8 @@ coins_percentage(coins,currencies,range).then((response) => {
         tokens.push(token);
       });
 
-      tokens.sort(compareValues('price','desc'));
-      let topTokens = tokens.slice(0,3);
+      //order tokens by several time frames
+      var orderedTokens = orderTokens(tokens,numberOfCoins);
+      console.log(orderedTokens);
       
-      tokens.sort(compareValues('percent1d','desc'));
-      topTokens = topTokens.concat(tokens.slice(0,3));
-
-      tokens.sort(compareValues('percent7d','desc'));
-      topTokens = topTokens.concat(tokens.slice(0,3));
-
-      tokens.sort(compareValues('percent30d','desc'));
-      topTokens = topTokens.concat(tokens.slice(0,3));
-      
-      console.log(topTokens); 
   }).catch(e => console.log(e));;
